@@ -25,8 +25,9 @@ npm run release            # dist/showfm-1.0.3.zip, checked against bin/release-
 ```
 
 `npm run release` stops if the plugin header, `SHOWFM_VERSION` and the readme's Stable tag
-disagree, if the zip holds anything other than the files in `bin/release-files.txt`, or if
-any shipped file names a show.fm development host. The plugin's built-in hosts are
+disagree, if the zip holds anything other than the files in `bin/release-files.txt`, if any
+shipped file names a show.fm development host, or if any shipped file contains the name of a
+placeholder image service, such as `placeholder.com` (see "Review history"). The plugin's built-in hosts are
 production only. A development environment is selected by a must-use plugin through the
 `showfm_environment` filter, kept outside this repository. CI
 runs the same build, the allow-list check and Plugin Check (Plugin Repo category) on every
@@ -38,14 +39,14 @@ category, including the runtime and experimental checks, and so has each release
 
 ## Publish the GitHub release
 
-The plugin's public download, until WordPress.org approves it, is a GitHub release. Once PR #10
-is merged and `main` is green:
+The plugin's public download, until WordPress.org approves it, is a GitHub release. Once the
+release PR is merged and `main` is green:
 
 1. Download the `showfm-zip` artifact from the CI run on `main`, or build it with
    `npm run release` from a clean checkout of that commit.
-2. Tag the merge commit `v1.0.0` and push the tag.
-3. Create the GitHub release `v1.0.0` from that tag, with the 1.0.0 changelog from
-   `readme.txt` as its notes, and attach `showfm-1.0.0.zip`.
+2. Tag the merge commit with the version, such as `v1.0.3`, and push the tag.
+3. Create the GitHub release from that tag, with the version's changelog from `readme.txt`
+   as its notes, and attach the zip, such as `showfm-1.0.3.zip`.
 4. Check the attached zip installs on a fresh site before I share the link.
 
 ## Submit

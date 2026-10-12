@@ -15,7 +15,7 @@
  * No shipped file may contain text that reads as a third-party file host either, even where
  * it isn't a URL. WordPress.org's review scanner reported 1.0.2's editor CSS as "calling files
  * remotely" because the selector `.showfm-placeholder.components-placeholder` contains
- * `placeholder.com`, a placeholder image service.
+ * `placeholder.com`, a placeholder image service. REMOTE_LOOKALIKES lists those services.
  *
  * The readme (above its changelog) must name the bundled `@showfm/embed` version, and only it,
  * in its text and in the source link, so the version a reviewer follows is the one shipped.
@@ -34,8 +34,15 @@ const CDN_ALLOWED = [];
 const DEV_HOSTS = [ 'showfm', 'podcasterplus' ].map(
 	( name ) => `${ name }.dev`
 );
-// Third-party hosts the WordPress.org review scanner reports as remote files.
-const REMOTE_LOOKALIKES = [ 'placeholder.com' ];
+// Placeholder image services, which the WordPress.org review scanner reports as remote files.
+const REMOTE_LOOKALIKES = [
+	'placeholder.com',
+	'placehold.co',
+	'placehold.it',
+	'dummyimage.com',
+	'picsum.photos',
+	'placekitten.com',
+];
 if ( ! zip ) {
 	process.stderr.write( 'Usage: node scripts/check-zip.mjs <zip>\n' );
 	process.exit( 2 );
@@ -147,5 +154,5 @@ if ( problems.length ) {
 	process.exit( 1 );
 }
 process.stdout.write(
-	`${ zip }: all ${ files.length } files match bin/release-files.txt, no script names ${ CDN }, and no file names a development host or ${ REMOTE_LOOKALIKES.join( ', ' ) }.\n`
+	`${ zip }: all ${ files.length } files match bin/release-files.txt, no script names ${ CDN }, and no file names a development host or a placeholder image service.\n`
 );

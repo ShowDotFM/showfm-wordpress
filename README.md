@@ -7,7 +7,7 @@ This file is for developers. The WordPress.org readme is `readme.txt`.
 
 ## Status
 
-Version 1.0.0 is the first release for WordPress.org. It has the four blocks, the shortcode
+Version 1.0.3 is the version submitted to WordPress.org. It has the four blocks, the shortcode
 and oEmbed, Settings > show.fm with the Connection, Publishing, Display and Migrate tabs, the
 admin notices, connecting a site to show.fm (in the browser and with WP-CLI), the background
 sync engine and the embed migrator. The editor UI is described in
@@ -406,7 +406,7 @@ npm run env:start           # WordPress on http://localhost:8888 (user admin, pa
 | `npm run i18n:check`         | Fails if a translatable string is missing from the `.pot`, or if the `.pot` is stale.     |
 | `npm run format`             | Prettier through `@wordpress/scripts`.                                                    |
 | `npm run release`            | Builds `dist/showfm/` and `dist/showfm-{version}.zip` (`npm run zip` does the same).      |
-| `npm run zip:check`          | Checks the zip's files against the allow-list in `bin/release-files.txt`.                 |
+| `npm run zip:check`          | Checks the zip's files against `bin/release-files.txt`, and its hosts and readme.         |
 | `npm run wporg:assets`       | Renders the WordPress.org banners and icons into `.wordpress-org/`.                       |
 | `npm run wporg:screenshots`  | Captures the five WordPress.org screenshots from `wp-env` into `.wordpress-org/`.         |
 
