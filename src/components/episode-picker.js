@@ -105,7 +105,7 @@ export default function EpisodePicker( {
 			<Placeholder
 				icon={ icon }
 				label={ label }
-				className="showfm-placeholder showfm-state is-error"
+				className="showfm-setup showfm-state is-error"
 			>
 				<div className="showfm-state__message is-warning" role="alert">
 					<Icon icon="update" size={ 20 } />
@@ -197,7 +197,7 @@ export default function EpisodePicker( {
 		<Placeholder
 			icon={ icon }
 			label={ label }
-			className="showfm-placeholder showfm-picker"
+			className="showfm-setup showfm-picker"
 		>
 			<div className="showfm-picker__show">
 				<Artwork src={ show.artwork } size={ 20 } />

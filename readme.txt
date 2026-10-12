@@ -4,7 +4,7 @@ Tags: podcast, podcasting, audio, player, episodes
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -170,6 +170,9 @@ The plugin's settings, cache, scheduled events and its own post meta. Your posts
 
 == Changelog ==
 
+= 1.0.3 =
+* Renames a block editor CSS class whose selector text was read as a remote file host. The editor looks and works the same, and the plugin still loads no files from other sites.
+
 = 1.0.2 =
 * The plugin's built-in hosts are show.fm's production services only. A site's own code can select another show.fm environment for testing with the `showfm_environment` filter, which replaces the `SHOWFM_API_URL` and `SHOWFM_APP_URL` constants. The block editor gets the same hosts from the site.
 * Bundles @showfm/embed 1.6.2, which names only production hosts.
@@ -197,6 +200,9 @@ The plugin's settings, cache, scheduled events and its own post meta. Your posts
 * Bundles @showfm/embed 1.6.1. Every element carries `platform="wordpress"`, so with the credit setting off, no show displays "Powered by show.fm".
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Renames a block editor CSS class. Nothing else changes.
 
 = 1.0.2 =
 Production hosts only. Sites that set `SHOWFM_API_URL` or `SHOWFM_APP_URL` use the `showfm_environment` filter instead.
