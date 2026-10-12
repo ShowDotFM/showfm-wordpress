@@ -138,7 +138,7 @@ export default function ShowPlaceholder( {
 				icon={ icon }
 				label={ label }
 				instructions={ __( 'Choose a show.', 'showfm' ) }
-				className="showfm-placeholder"
+				className="showfm-setup"
 			>
 				{ shows.loading && (
 					<div className="showfm-loading" role="status">
@@ -225,7 +225,7 @@ export default function ShowPlaceholder( {
 			icon={ icon }
 			label={ label }
 			instructions={ instructions }
-			className="showfm-placeholder"
+			className="showfm-setup"
 		>
 			<form className="showfm-address" onSubmit={ lookUp }>
 				<TextControl

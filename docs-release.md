@@ -1,7 +1,8 @@
 # Releasing to WordPress.org
 
 My notes for submitting show.fm to the WordPress.org plugin directory, starting with 1.0.2,
-and for each release after it. Nothing here has been submitted yet.
+and for each release after it. I submitted 1.0.2 on 9 October 2026, and 1.0.3 replaces it in
+review (see "Review history" below).
 
 ## Before I submit
 
@@ -20,7 +21,7 @@ and for each release after it. Nothing here has been submitted yet.
 npm ci
 composer install
 npm run env:start
-npm run release            # dist/showfm-1.0.2.zip, checked against bin/release-files.txt
+npm run release            # dist/showfm-1.0.3.zip, checked against bin/release-files.txt
 ```
 
 `npm run release` stops if the plugin header, `SHOWFM_VERSION` and the readme's Stable tag
@@ -50,7 +51,7 @@ is merged and `main` is green:
 ## Submit
 
 1. Sign in and open <https://wordpress.org/plugins/developers/add/>.
-2. Upload `showfm-1.0.2.zip`.
+2. Upload `showfm-1.0.3.zip`.
 3. **Check the slug.** WordPress.org builds the slug from the Plugin Name, so the form shows
    `show-fm-podcast-player` (`sanitize_title( 'show.fm Podcast Player' )`). I want `showfm`,
    the plugin's text domain, which translate.wordpress.org needs to match the slug. I ask
@@ -88,6 +89,18 @@ is merged and `main` is green:
 > Testing: the blocks work with any public show.fm show. Type a show's address, such as
 > <https://the.show.fm/>, into a Player block.
 
+## Review history
+
+- **9 October 2026, automated pre-review of 1.0.2.** It confirmed the slug `showfm` and
+  listed "Calling files remotely" in `build/index.css` and `build/index-rtl.css`. The editor
+  selector `.showfm-placeholder.components-placeholder` contains the text `placeholder.com`,
+  a placeholder image service, so the scanner read it as a remote file. I replied without a
+  new zip, and the reviewer wrote back on 11 October that no change had been made.
+- **1.0.3** renames the class to `showfm-setup`, and `npm run release` now fails if any
+  shipped file contains `placeholder.com`. I upload it on the "Add your plugin" page and
+  reply to the review email. When a scanner flags text, I change the text and upload a new
+  zip rather than only explaining it.
+
 ## After approval
 
 The approval email gives the SVN address, `https://plugins.svn.wordpress.org/showfm/`.
@@ -96,10 +109,10 @@ The approval email gives the SVN address, `https://plugins.svn.wordpress.org/sho
 svn checkout https://plugins.svn.wordpress.org/showfm/ showfm-svn
 cd showfm-svn
 
-# The plugin: trunk and the 1.0.2 tag hold the zip's contents.
+# The plugin: trunk and the 1.0.3 tag hold the zip's contents.
 rsync -a --delete ../showfm-wordpress/dist/showfm/ trunk/
 svn add --force trunk
-svn cp trunk tags/1.0.2
+svn cp trunk tags/1.0.3
 
 # The listing assets: banners, icons and screenshots go in the top-level assets folder.
 cp ../showfm-wordpress/.wordpress-org/* assets/
@@ -107,7 +120,7 @@ svn add --force assets
 svn propset svn:mime-type image/png assets/*.png
 svn propset svn:mime-type image/svg+xml assets/icon.svg
 
-svn commit -m "Release 1.0.2" --username danmaby
+svn commit -m "Release 1.0.3" --username danmaby
 ```
 
 `svn commit` asks for the SVN password. The assets never go in `trunk` or a tag. The
@@ -137,8 +150,8 @@ release I add both usernames to the readme's `Contributors:` line, after mine.
     # Files the release added.
     svn add --force trunk
     svn status trunk            # check: only M, A and D lines
-    svn cp trunk tags/1.0.3     # the new version
-    svn commit -m "Release 1.0.3" --username danmaby
+    svn cp trunk tags/1.0.4     # the new version
+    svn commit -m "Release 1.0.4" --username danmaby
     ```
 
     The package's hashed chunk names change with each @showfm/embed release, so most

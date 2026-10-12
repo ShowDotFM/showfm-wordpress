@@ -112,7 +112,7 @@ export function LoadingState( { icon, label, message } ) {
 		<Placeholder
 			icon={ icon }
 			label={ label }
-			className="showfm-placeholder showfm-state"
+			className="showfm-setup showfm-state"
 		>
 			<div className="showfm-loading" role="status">
 				<Spinner />
@@ -200,7 +200,7 @@ export function StateMessage( {
 		<Placeholder
 			icon={ icon }
 			label={ label }
-			className={ `showfm-placeholder showfm-state is-${ state }` }
+			className={ `showfm-setup showfm-state is-${ state }` }
 		>
 			<div className={ `showfm-state__message is-${ copy.tone }` }>
 				<Icon icon={ copy.icon } size={ 20 } />

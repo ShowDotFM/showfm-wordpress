@@ -188,7 +188,7 @@ export default function TranscriptEdit( props ) {
 							'Choose the player this transcript follows.',
 							'showfm'
 						) }
-						className="showfm-placeholder"
+						className="showfm-setup"
 					>
 						<div className="showfm-shows">
 							{ followable.map( ( block, index ) => (
@@ -257,7 +257,7 @@ export default function TranscriptEdit( props ) {
 								'The player this transcript followed is no longer on the page.',
 								'showfm'
 							) }
-							className="showfm-placeholder"
+							className="showfm-setup"
 						>
 							<Button
 								variant="secondary"
