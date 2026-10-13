@@ -46,6 +46,8 @@ jobs:
       DEBIAN_FRONTEND: noninteractive
     # CLAUDE_CODE_OAUTH_TOKEN is a repository secret from `claude setup-token`. It expires
     # after about a year; regenerate it then and update the secret.
+    # The value must start with sk-ant-oat: the pinned action refuses
+    # anything else. Never use an API key.
     steps:
       # The Azure apt mirror on hosted runners is intermittently unreachable and hangs apt
       # silently. Repoint it before any step that installs packages, and fail closed if any
@@ -86,7 +88,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ShowDotFM/claude-code-security-review
-          ref: e1092743ad11d9d918e00cb4e740e7b121205d98
+          ref: 8b2c7277772d514218a2e16e52b17c6e4619f425
           path: .security-review-action
           persist-credentials: false
       - name: Verify and prepare complete PR input adapter
