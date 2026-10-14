@@ -4,7 +4,7 @@ Run `npm ci`, `npm run build` and `composer install` before starting WordPress.
 `npm run zip` builds the editor entry point and copies every file from the exact
 `@showfm/embed@1.6.2` CDN distribution. `npm run test:assets` compares file lists
 and SHA-256 hashes, including locales and future chunks. The package's MIT
-licence is in `assets/showfm-embed-LICENSE`. WordPress supplies the editor's React
+licence is in `assets/showfm-embed-license.txt`. WordPress supplies the editor's React
 and block libraries through the generated dependency file.
 
 The four dynamic blocks are `showfm/player`, `showfm/episodes`, `showfm/play` and

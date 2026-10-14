@@ -6,7 +6,7 @@
 showfm/showfm.php
 showfm/uninstall.php
 showfm/readme.txt
-showfm/LICENSE
+showfm/license.txt
 showfm/languages/showfm.pot
 
 # One class per file in includes/.
@@ -89,7 +89,7 @@ showfm/assets/blocks.css
 
 # @showfm/embed's dist/cdn, copied unchanged by scripts/embed-assets.mjs, without the CDN
 # click-loader.js (see .distignore). click-loader-local.js runs in load-on-click mode.
-showfm/assets/showfm-embed-LICENSE
+showfm/assets/showfm-embed-license.txt
 showfm/assets/showfm-embed/v1.js
 showfm/assets/showfm-embed/v1-fallback.css
 showfm/assets/showfm-embed/click-loader-local.js

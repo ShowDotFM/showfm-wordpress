@@ -37,7 +37,7 @@ if ( ! process.argv.includes( '--check' ) ) {
 	cpSync( source, target, { recursive: true } );
 	cpSync(
 		'node_modules/@showfm/embed/LICENSE',
-		'assets/showfm-embed-LICENSE'
+		'assets/showfm-embed-license.txt'
 	);
 }
 assert.deepEqual( hashes( target ), hashes( source ) );

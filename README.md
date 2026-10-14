@@ -7,7 +7,7 @@ This file is for developers. The WordPress.org readme is `readme.txt`.
 
 ## Status
 
-Version 1.0.3 is the version submitted to WordPress.org. It has the four blocks, the shortcode
+Version 1.0.4 is the version submitted to WordPress.org. It has the four blocks, the shortcode
 and oEmbed, Settings > show.fm with the Connection, Publishing, Display and Migrate tabs, the
 admin notices, connecting a site to show.fm (in the browser and with WP-CLI), the background
 sync engine and the embed migrator. The editor UI is described in
@@ -451,4 +451,4 @@ has the `security-review` label. See the comments in that file and
 
 ## Licence
 
-GPLv2 or later. See `LICENSE`.
+GPLv2 or later. See `license.txt`.

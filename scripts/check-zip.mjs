@@ -6,6 +6,10 @@
  * Every file in the zip must match a line of the allow-list, and every line must match
  * exactly one file, so the zip holds exactly the distributable files and none is missing.
  *
+ * Every file must also have one of the file types in PERMITTED_TYPES. WordPress.org's review
+ * rejected 1.0.3 for `assets/showfm-embed-LICENSE`, a file with no extension, as a file type a
+ * plugin doesn't normally hold.
+ *
  * No shipped script may name show.fm's script CDN, so no path through the plugin can load
  * remote code (WordPress.org guideline 8). CDN_ALLOWED lists the files allowed to, and why.
  *
@@ -43,6 +47,8 @@ const REMOTE_LOOKALIKES = [
 	'picsum.photos',
 	'placekitten.com',
 ];
+// File types a WordPress.org plugin normally holds. Add one here only with a reason.
+const PERMITTED_TYPES = [ 'php', 'js', 'css', 'txt', 'json', 'pot' ];
 if ( ! zip ) {
 	process.stderr.write( 'Usage: node scripts/check-zip.mjs <zip>\n' );
 	process.exit( 2 );
@@ -85,6 +91,14 @@ for ( const file of files ) {
 		rule.used++;
 	} else {
 		problems.push( `Not on the allow-list: ${ file }` );
+	}
+	const type = /\.([a-z0-9]+)$/.exec( file.split( '/' ).pop() )?.[ 1 ];
+	if ( ! PERMITTED_TYPES.includes( type ) ) {
+		problems.push(
+			`${ file } is not a permitted file type (${ PERMITTED_TYPES.join(
+				', '
+			) }).`
+		);
 	}
 }
 for ( const file of files.filter(
@@ -154,5 +168,5 @@ if ( problems.length ) {
 	process.exit( 1 );
 }
 process.stdout.write(
-	`${ zip }: all ${ files.length } files match bin/release-files.txt, no script names ${ CDN }, and no file names a development host or a placeholder image service.\n`
+	`${ zip }: all ${ files.length } files match bin/release-files.txt and are permitted file types, no script names ${ CDN }, and no file names a development host or a placeholder image service.\n`
 );
