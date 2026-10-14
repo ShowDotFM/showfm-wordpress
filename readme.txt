@@ -4,7 +4,7 @@ Tags: podcast, podcasting, audio, player, episodes
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,7 +41,7 @@ The Migrate tab finds players from Buzzsprout, Libsyn, Captivate, Transistor, Sp
 
 **Source code**
 
-The plugin's source and build instructions are on GitHub at [ShowDotFM/showfm-wordpress](https://github.com/ShowDotFM/showfm-wordpress). The block editor scripts in `build/` are compiled from `src/` there with @wordpress/scripts. The player scripts in `assets/showfm-embed/` are copied unchanged from the MIT-licensed [@showfm/embed 1.6.2](https://github.com/ShowDotFM/showfm-embed/tree/v1.6.2) package, and a test checks every file byte for byte. With "Load players only after a visitor clicks" on, the plugin loads the package's self-hosting click loader (`click-loader-local.js`) instead of the player script. It names no host: it loads only the bundled `v1.js` the plugin gives it, after a visitor presses a block, and without that it does nothing. The package's CDN click loader is not in the plugin, and a release check fails if any script in the plugin names embed.cdn.media.
+The plugin's source and build instructions are on GitHub at [ShowDotFM/showfm-wordpress](https://github.com/ShowDotFM/showfm-wordpress). The block editor scripts in `build/` are compiled from `src/` there with @wordpress/scripts. The player scripts in `assets/showfm-embed/` are copied unchanged from the MIT-licensed [@showfm/embed 1.6.2](https://github.com/ShowDotFM/showfm-embed/tree/v1.6.2) package, and a test checks every file byte for byte. The package's MIT licence is in `assets/showfm-embed-license.txt`. With "Load players only after a visitor clicks" on, the plugin loads the package's self-hosting click loader (`click-loader-local.js`) instead of the player script. It names no host: it loads only the bundled `v1.js` the plugin gives it, after a visitor presses a block, and without that it does nothing. The package's CDN click loader is not in the plugin, and a release check fails if any script in the plugin names embed.cdn.media.
 
 == External services ==
 
@@ -170,6 +170,9 @@ The plugin's settings, cache, scheduled events and its own post meta. Your posts
 
 == Changelog ==
 
+= 1.0.4 =
+* The plugin's licence and the bundled player's MIT licence are now `license.txt` and `assets/showfm-embed-license.txt`, so every file in the plugin has a standard file type. Nothing else changes.
+
 = 1.0.3 =
 * Renames a block editor CSS class whose selector text was read as a remote file host. The editor looks and works the same, and the plugin still loads no files from other sites.
 
@@ -200,6 +203,9 @@ The plugin's settings, cache, scheduled events and its own post meta. Your posts
 * Bundles @showfm/embed 1.6.1. Every element carries `platform="wordpress"`, so with the credit setting off, no show displays "Powered by show.fm".
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+Renames the two licence files. Nothing else changes.
 
 = 1.0.3 =
 Renames a block editor CSS class. Nothing else changes.

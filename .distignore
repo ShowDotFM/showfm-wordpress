@@ -1,6 +1,6 @@
 # Paths kept out of the distribution zip (bin/build-zip.sh, and the WordPress.org deploy).
 # The zip holds only what runs in WordPress: showfm.php, uninstall.php, includes/,
-# build/ and assets/ once they exist, readme.txt and LICENSE.
+# build/ and assets/ once they exist, readme.txt and license.txt.
 
 # Version control and CI
 /.git
